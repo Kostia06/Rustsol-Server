@@ -1,0 +1,33 @@
+<div class="px-3 py-3">
+    <h2
+        class="text-[13px] font-semibold text-green-700 border-b border-green-200 pb-1 mb-2"
+    >
+        Wire Transfer Instructions
+    </h2>
+    <p class="text-[11px] text-slate-700 mb-2">
+        To complete your order, please wire the total amount to the following
+        bank account:
+    </p>
+    <table class="text-[11px] text-slate-700 w-full max-w-md">
+        <tr>
+            <td class="p-1 font-semibold text-slate-600">Bank Name:</td>
+            <td class="p-1">{{wire_transfer.bank_name}}</td>
+        </tr>
+        <tr>
+            <td class="p-1 font-semibold text-slate-600">Account Number:</td>
+            <td class="p-1">{{wire_transfer.account_number}}</td>
+        </tr>
+        <tr>
+            <td class="p-1 font-semibold text-slate-600">SWIFT/BIC:</td>
+            <td class="p-1">{{wire_transfer.swift_bic}}</td>
+        </tr>
+        <tr>
+            <td class="p-1 font-semibold text-slate-600">Routing Number:</td>
+            <td class="p-1">{{wire_transfer.routing_number}}</td>
+        </tr>
+    </table>
+    <p class="text-[10px] text-slate-500 mt-2">
+        Please include your order number
+        <strong>#{{orderId}}</strong> in the transfer notes.
+    </p>
+</div>

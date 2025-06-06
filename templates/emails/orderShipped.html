@@ -1,0 +1,51 @@
+---
+subject: Your Order Has Shipped preheader
+bodyClass: bg-slate-50 font-sans text-xs leading-snug
+---
+
+<x-main>
+    <div
+        class="max-w-[850px] mx-auto bg-white shadow rounded border border-slate-200"
+    >
+        <!-- Header -->
+        <x-header>Order Shipped</x-header>
+
+        <!-- Confirmation Message -->
+        <div
+            class="px-3 py-3 bg-blue-50 border-l-4 border-blue-600 rounded-b-md"
+        >
+            <h2 class="text-[13px] font-semibold text-blue-700 mb-2">
+                Your order is on its way!
+            </h2>
+            <p class="text-[11px] text-slate-700">
+                We’re excited to let you know that your order has shipped. You
+                should receive it soon. Thank you for shopping with us!
+            </p>
+            {{#if trackingNumber}}
+            <p class="text-[11px] text-slate-700 mt-2">
+                <strong>Tracking Number:</strong> {{trackingNumber}}
+            </p>
+            {{/if}} {{#if carrier}}
+            <p class="text-[11px] text-slate-700">
+                <strong>Carrier:</strong> {{carrier}}
+            </p>
+            {{/if}}
+            <p class="text-[11px] text-slate-700 mt-3 italic">
+                If you have any questions, feel free to contact our support
+                team.
+            </p>
+        </div>
+
+        <!-- Customer Info -->
+        <x-customerInfo></x-customerInfo>
+
+        <!-- Order Items -->
+        <x-orderItems></x-orderItems>
+
+        <!-- Order Summary -->
+        <x-orderSummary></x-orderSummary>
+
+        <!-- Footer -->
+        <x-footer></x-footer>
+    </div>
+</x-main>

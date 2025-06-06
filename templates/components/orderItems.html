@@ -1,0 +1,55 @@
+<div class="px-3 py-3">
+    <h2
+        class="text-sm font-semibold text-orange-700 border-b border-orange-200 pb-2 mb-3"
+    >
+        Order Items
+    </h2>
+
+    <!-- Mobile layout -->
+    <div class="space-y-4 hidden sm:block">
+        {{#each orderParts}}
+        <div class="border border-orange-200 rounded-lg bg-orange-50 p-3">
+            <p class="text-sm font-semibold text-slate-800 mb-1">
+                {{this.description}}
+            </p>
+            <div class="text-xs text-slate-600 space-y-1">
+                <p><strong>Qty:</strong> {{this.quantity}}</p>
+                <p><strong>Unit Cost:</strong> €{{this.unitCost}}</p>
+                <p class="text-right text-orange-700 font-semibold">
+                    Total: €{{this.sumCost}}
+                </p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+    <!-- Desktop layout -->
+    <div class="sm:hidden mt-4">
+        <table
+            class="w-full text-left border border-slate-200 text-sm rounded-md overflow-hidden"
+        >
+            <thead>
+                <tr
+                    class="bg-orange-500 text-white text-xs uppercase tracking-wider"
+                >
+                    <th class="p-3">Description</th>
+                    <th class="p-3">Quantity</th>
+                    <th class="p-3">Unit Cost</th>
+                    <th class="p-3 text-right">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each orderParts}}
+                <tr
+                    class="even:bg-orange-50 hover:bg-orange-100 transition text-orange-500"
+                >
+                    <td class="p-3">{{this.description}}</td>
+                    <td class="p-3">{{this.quantity}}</td>
+                    <td class="p-3">€{{this.unitCost}}</td>
+                    <td class="p-3 text-right">€{{this.sumCost}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

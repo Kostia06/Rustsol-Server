@@ -1,0 +1,39 @@
+---
+subject: Product Order Created
+preheader: Your product order was successfully created.
+bodyClass: bg-slate-50 font-sans text-xs leading-snug
+---
+
+<x-main>
+    <div
+        class="max-w-[850px] mx-auto bg-white shadow rounded border border-slate-200"
+    >
+        <!-- Header -->
+        <x-header> Product Order Created </x-header>
+
+        <!-- Confirmation Message -->
+        <div
+            class="px-3 py-3 bg-green-50 border-l-4 border-green-600 rounded-b-md"
+        >
+            <h2 class="text-[13px] font-semibold text-green-700 mb-2">
+                Thank you for your order!
+            </h2>
+            <p class="text-[11px] text-slate-700">
+                Your product order has been successfully created. We will notify
+                you once it is ready to ship.
+            </p>
+        </div>
+
+        <!-- Customer Info -->
+        <x-customerInfo></x-customerInfo>
+
+        <!-- Order Items -->
+        <x-orderItems></x-orderItems>
+
+        <!-- Order Summary -->
+        <x-orderSummary></x-orderSummary>
+
+        <!-- Footer -->
+        <x-footer> </x-footer>
+    </div>
+</x-main>

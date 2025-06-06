@@ -1,0 +1,31 @@
+---
+subject: Your Order is Ready to Ship
+bodyClass: bg-slate-50 font-sans text-xs leading-snug
+---
+
+<x-main>
+    <div
+        class="max-w-[850px] mx-auto bg-white shadow rounded border border-slate-200"
+    >
+        <!-- Header -->
+        <x-header>Order Ready to Ship</x-header>
+
+        <!-- Alert / Payment Pending Notice -->
+        <div class="px-3 py-3 bg-red-50 border-l-4 border-red-600 rounded-b-md">
+            <h2 class="text-[13px] font-semibold text-red-700 mb-2">
+                Payment Pending
+            </h2>
+            <p class="text-[11px] text-slate-700">
+                Your order is packed and ready to ship. However, we have not yet
+                received your payment. Please complete your payment as soon as
+                possible to avoid shipment delays.
+            </p>
+        </div>
+
+        <x-customerInfo></x-customerInfo>
+        <x-orderItems></x-orderItems>
+        <x-orderSummary></x-orderSummary>
+        <x-wire></x-wire>
+        <x-footer></x-footer>
+    </div>
+</x-main>

@@ -1,0 +1,24 @@
+<div class="px-3 py-3 border-b border-green-100">
+    <div class="flex gap-2">
+        <h1
+            class="text-sm font-bold uppercase tracking-tight text-green-600 font-montserrat"
+        >
+            <yield />
+        </h1>
+        <div
+            class="ml-auto flex items-center gap-2 justify-start sm:justify-end"
+        >
+            <img
+                src="https://onfqmtlqkxbvqsrdvinm.supabase.co/storage/v1/object/public/assets//logo1.png"
+                alt="Company Logo"
+                class="h-14 rounded-md"
+            />
+        </div>
+    </div>
+    <div class="mt-2 text-[11px] text-slate-700">
+        <p class="font-semibold text-green-700">Order #{{orderId}}</p>
+        {{#if isPaid}}
+        <p>Processed on: {{paidAt}}</p>
+        {{else}} {{/if}}
+    </div>
+</div>
