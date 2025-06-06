@@ -1,0 +1,78 @@
+datasource db {
+    provider  = "postgresql"
+    url       = env("DATABASE_URL")
+    directUrl = env("DIRECT_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model User {
+    id           String  @id @default(uuid())
+    email        String  @unique
+    name         String
+    phone        String  @unique
+    resellerName String?
+    role         Role    @default(CUSTOMER)
+
+    street     String
+    postalCode String
+    city       String
+    country    String
+
+    verified   Boolean @default(false)
+    suspicious Boolean @default(false)
+
+    orders Order[]
+}
+
+model Order {
+    id        Int      @id @default(autoincrement())
+    createdAt DateTime @default(now())
+    status    Status   @default(PENDING)
+    paid      Boolean  @default(false)
+
+    userId String
+    user   User   @relation(fields: [userId], references: [id])
+
+    shippingStreet     String
+    shippingPostalCode String
+    shippingCity       String
+    shippingCountry    String
+
+    orderParts OrderPart[]
+}
+
+model OrderPart {
+    id      String @id @default(uuid())
+    quantity Int @default(1)
+    orderId Int
+    partId  Int
+
+    order Order @relation(fields: [orderId], references: [id])
+    part  Part  @relation(fields: [partId], references: [id])
+}
+
+model Part {
+    id                Int         @id @default(autoincrement())
+    partNumber        String?      
+    description       String
+    costLemmer2Wham   Float
+    costWham2Reseller Float
+    costWham2Customer Float
+    imageUrl          String      @default("https://picsum.photos/200/300")
+    orderParts        OrderPart[]
+}
+
+enum Role {
+    CUSTOMER
+    RESELLER
+}
+
+enum Status {
+    PENDING
+    READY_TO_SHIP
+    SHIPPED
+    COMPLETED
+}
